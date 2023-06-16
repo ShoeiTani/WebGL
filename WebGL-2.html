@@ -27,7 +27,7 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(0, 0, 1000);
+        camera.position.set(0, 0, 10);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera,document.body);
@@ -44,10 +44,10 @@
         scene.add(directionalLight2);
 
         // helper
-      const gridHelper = new THREE.GridHelper(200,50); // size, step
+      const gridHelper = new THREE.GridHelper(50,10); // size, step
       scene.add(gridHelper);
 
-      const axisHelper = new THREE.AxisHelper(200,50);
+      const axisHelper = new THREE.AxisHelper(50,10);
       scene.add(axisHelper);
 
         var textureLoader = new THREE.TextureLoader();  
