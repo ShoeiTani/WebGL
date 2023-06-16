@@ -44,10 +44,10 @@
         scene.add(directionalLight2);
 
         // helper
-      const gridHelper = new THREE.GridHelper(50,10); // size, step
+      const gridHelper = new THREE.GridHelper(5,1); // size, step
       scene.add(gridHelper);
 
-      const axisHelper = new THREE.AxisHelper(50,10);
+      const axisHelper = new THREE.AxisHelper(5,1);
       scene.add(axisHelper);
 
         var textureLoader = new THREE.TextureLoader();  
@@ -55,20 +55,18 @@
         const material0 = new THREE.SpriteMaterial({ map: texture0,});
 
         const sprite0 = new THREE.Sprite(material0);
-        sprite0.position.x = 2
-        sprite0.position.y = 1
+        sprite0.position.x = 30;
+        sprite0.position.y = 0;
         sprite0.position.z = 0;
-        sprite0.scale.set(1,2,1);
         scene.add(sprite0);
         
         var texture1 = textureLoader.load("Subject2.png");
         const material1 = new THREE.SpriteMaterial({ map: texture1,});
 
         const sprite1 = new THREE.Sprite(material1);
-        sprite1.position.x = -2;
-        sprite1.position.y = 1;
+        sprite1.position.x = -30;
+        sprite1.position.y = 0;
         sprite1.position.z = 0;
-        sprite1.scale.set(1,2,1);
         scene.add(sprite1);
 
         tick();
