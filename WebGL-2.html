@@ -96,21 +96,21 @@
         }
 
         var texture4 = textureLoader.load("ground.png");
-        var planeGeometry = new THREE.PlaneGeometry(50,50);
+        var planeGeometry = new THREE.PlaneGeometry(25,25);
         var planeMaterial = new THREE.MeshLambertMaterial( {map: texture4} );
         var ground = new THREE.Mesh( planeGeometry, planeMaterial );
-        ground.receiveShadow = true;
         ground.rotation.set( -Math.PI/2, 0, 0 );
         ground.position.set(0,0,0);
         scene.add( ground );
 
-        /*var texture5 = textureLoader.load("ground_2.png");
-        const material5 = new THREE.MeshLambertMaterial({ map: texture5 });
-        const ground2 = new THREE.PlaneGeometry(material5);
-        ground2.scale.set(25,25,1);
-        ground2.receiveShadow = true;
-        ground2.rotation.set( -Math.PI/2, 0, 0 );
-        scene.add(ground);*/
+        /*var texture5 = textureLoader.load("ground2.png");
+        var planeGeometry = new THREE.PlaneGeometry(25,25);
+        var planeMaterial = new THREE.MeshLambertMaterial( {map: texture5} );
+        var ground = new THREE.Mesh( planeGeometry, planeMaterial );
+        ground.receiveShadow = true;
+        ground.rotation.set( -Math.PI/2, 0, 0 );
+        ground.position.set(0,-12.5,0);
+        scene.add( ground );*/
         
         tick();
         // 毎フレーム時に実行されるループイベントです
