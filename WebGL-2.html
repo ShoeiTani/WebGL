@@ -59,9 +59,11 @@
         
         var texture1 = textureLoader.load("tree_hinoki.png");
         const material1 = new THREE.SpriteMaterial({ map: texture1 });
-        const sprite1 = new THREE.Sprite(material1);
-        sprite1.scale.set(1.5,2,1);
+        
+        
         for (var i=0; i<10; i++){
+          const sprite1 = new THREE.Sprite(material1);
+          sprite1.scale.set(1.5,2,1);
           sprite1.position.x = Math.random()*30 - 15;
           sprite1.position.y = 1;
           sprite1.position.z = Math.random()*30 - 15;
@@ -71,9 +73,10 @@
 
         var texture2 = textureLoader.load("tree_keyaki.png");
         const material2 = new THREE.SpriteMaterial({ map: texture2 });
-        const sprite2 = new THREE.Sprite(material2);
-        sprite2.scale.set(1,1.3,1);
-        for (var i=0; i<10; i++){
+        
+        for (var i=0; i<20; i++){
+          const sprite2 = new THREE.Sprite(material2);
+          sprite2.scale.set(1,1.3,1);
           sprite2.position.x = Math.random()*35 - 17.5;
           sprite2.position.y = 0.65;
           sprite2.position.z = Math.random()*35 - 17.5;
@@ -82,10 +85,11 @@
 
         var texture3 = textureLoader.load("cloud.png");
         const material3 = new THREE.SpriteMaterial({ map: texture3 });
-        const sprite3 = new THREE.Sprite(material3);
-        sprite3.scale.set(4,2,1);
+        
         for (var i=0; i<15; i++){
-        sprite3.position.x = Math.random()*35 - 17.5;
+          const sprite3 = new THREE.Sprite(material3);
+          sprite3.scale.set(4,2,1);
+          sprite3.position.x = Math.random()*35 - 17.5;
           sprite3.position.y = Math.random()*3 + 10;
           sprite3.position.z = Math.random()*35 - 17.5;
           scene.add(sprite3);
