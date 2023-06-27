@@ -96,12 +96,13 @@
         }
 
         var texture4 = textureLoader.load("ground.png");
-        const material4 = new THREE.MeshLambertMaterial({ map: texture4 });
-        const ground = new THREE.PlaneGeometry(material4);
-        ground.scale.set(25,25,1);
+        var planeGeometry = new THREE.PlaneGeometry(50,50);
+        var planeMaterial = new THREE. MeshPhongMaterial( {map: texture4} );
+        var ground = new THREE.Mesh( planeGeometry, planeMaterial );
         ground.receiveShadow = true;
         ground.rotation.set( -Math.PI/2, 0, 0 );
-        scene.add(ground);
+        ground.position.set(0,0,0);
+        scene.add( ground );
 
         /*var texture5 = textureLoader.load("ground_2.png");
         const material5 = new THREE.MeshLambertMaterial({ map: texture5 });
