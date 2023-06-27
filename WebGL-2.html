@@ -97,7 +97,7 @@
 
         var texture4 = textureLoader.load("ground.png");
         var planeGeometry = new THREE.PlaneGeometry(50,50);
-        var planeMaterial = new THREE. MeshPhongMaterial( {map: texture4} );
+        var planeMaterial = new THREE.MeshLambertMaterial( {map: texture4} );
         var ground = new THREE.Mesh( planeGeometry, planeMaterial );
         ground.receiveShadow = true;
         ground.rotation.set( -Math.PI/2, 0, 0 );
