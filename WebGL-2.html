@@ -40,13 +40,6 @@
         // シーンに追加
         scene.add(directionalLight2);
 
-        // helper
-      const gridHelper = new THREE.GridHelper(8,8); // size, step
-      scene.add(gridHelper);
-
-      const axisHelper = new THREE.AxisHelper(5,1);
-      scene.add(axisHelper);
-
         var textureLoader = new THREE.TextureLoader();  
         var texture0 = textureLoader.load("tree.png");
         const material0 = new THREE.SpriteMaterial({ map: texture0 });
@@ -129,10 +122,10 @@
     <h1>課題２</h1>
     <h2>工夫点</h2>
           <ul>
-            座標空間と板ポリについて理解し、
-            ・雲、木、地面を作成
-            ・地面は動かず、その他はカメラ操作に応じて動くようにした
-            ・Z軸画面後方の画像表示が少しおかしいことについては理解できなかった。
+            座標空間と板ポリについて理解し、<br>
+            ・雲、木、地面を作成<br>
+            ・地面は動かず、その他はカメラ操作に応じて動くようにした<br>
+            ・Z軸画面後方の画像表示が少しおかしいことについては理解できなかった。<br>
             
     <canvas id="myCanvas"></canvas>
   </body>
