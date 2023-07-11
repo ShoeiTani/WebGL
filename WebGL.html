@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.137.4/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
+    <script>
+      // ページの読み込みを待つ
+      window.addEventListener('load', init);
+
+      function init() {
+        // サイズを指定
+        const width = 960;
+        const height = 540;
+        var rot = 0;
+
+        // レンダラーを作成
+        const renderer = new THREE.WebGLRenderer({
+          canvas: document.querySelector('#myCanvas')
+        });
+        renderer.setSize(width, height);
+        renderer.setClearColor(0xdddddd);
+
+        // シーンを作成
+        const scene = new THREE.Scene();
+
+        // フォグを設定
+        scene.fog = new THREE.Fog(0x000000, 100, 5000);
+
+        // カメラを作成
+        const camera = new THREE.PerspectiveCamera(45, width / height);
+        // カメラの初期座標を設定
+        camera.position.set(0, 300, 1000);
+
+        // カメラコントローラーを作成
+        const controls = new THREE.OrbitControls(camera);
+        controls.autoRotate = true;
+
+        // helper
+        /*const gridHelper = new THREE.GridHelper(1000,20); // size, step
+        scene.add(gridHelper);
+        const axisHelper = new THREE.AxisHelper(1000); //軸の長さ　X：赤、Y：緑、z：青
+        scene.add(axisHelper);*/
+
+        // グループを作成
+        const group = new THREE.Group();
+        scene.add(group);
+        var textureLoader = new THREE.TextureLoader();  
+        var texture = textureLoader.load("basketball.png");
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
+        var bump = textureLoader.load("basketballbump.png");
+        mat.bumpMap = bump;
+        mat.bumpscale = 0.2;
+        var geometry1 = new THREE.SphereGeometry( 20, 16, 16 );
+
+        for (let i = 0; i < 40; i++) {
+          const ball = new THREE.Mesh(geometry1, mat);
+          ball.position.x = (Math.random() - 0.5) * 2000;
+          ball.position.y = 20;
+          ball.position.z = (Math.random() - 0.5) * 1000;
+          ball.rotation.x = Math.random() * 2 * Math.PI;
+          ball.rotation.y = Math.random() * 2 * Math.PI;
+          ball.rotation.z = Math.random() * 2 * Math.PI;
+          // グループに格納する
+          group.add(ball);
+        }
+        
+        var texture2 = textureLoader.load("basketballcourt.jpg");
+        var planeGeometry = new THREE.PlaneGeometry(2000,1000);
+        var planeMaterial = new THREE.MeshLambertMaterial( {transparent: true} );
+        planeMaterial.map = texture2;
+        var ground = new THREE.Mesh( planeGeometry, planeMaterial );
+        ground.rotation.set( -Math.PI/2, 0, 0 );
+        ground.position.set(0,0,0);
+        scene.add( ground );
+
+     
+      　 // 光源（環境光）
+        var ambientlight = new THREE.AmbientLight(0xffffff, 2);
+        scene.add(ambientlight);
+
+        // 平行光源
+        var directionalLight1 = new THREE.DirectionalLight(0xffffff,0.5);
+        directionalLight1.position.set(1000, 1000, 700);
+        // シーンに追加
+        scene.add(directionalLight1);
+        
+        tick();
+
+        // 毎フレーム時に実行されるループイベントです
+        function tick() {
+          // レンダリング
+          rot +=1.8;
+          var radian = rot * Math.PI / 180;
+          if(Math.sin(radian)>=0){group.position.y = 100 * Math.sin(radian) + 10;}
+          else{group.position.y = -100 * Math.sin(radian) + 10;}
+          renderer.render(scene, camera);
+          requestAnimationFrame(tick);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>最終課題</h1>
+    <br>
+    バスケットボールのテクスチャの貼り付け、ランダムな位置に配置を行った<br>
+    コートを作成した<br>
+    作成物をグループ化し回転するようにした。<br>
+    ボールのみをグループ化し、第一回レポートのように<br>
+    バウンドさせることができなかった
+    
+    <br>
+    <canvas id="myCanvas"></canvas>
+  </body>
+</html>
