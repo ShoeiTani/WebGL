@@ -17,6 +17,7 @@
           canvas: document.querySelector('#myCanvas')
         });
         renderer.setSize(width, height);
+        renderer.setClearColor(0xdddddd);
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -89,6 +90,7 @@
         function tick() {
           // レンダリング
           group.rotateY(0.01);
+          ground.ratateY(0.01);
           
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
