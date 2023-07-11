@@ -11,6 +11,7 @@
         // サイズを指定
         const width = 960;
         const height = 540;
+        var rot = 0;
 
         // レンダラーを作成
         const renderer = new THREE.WebGLRenderer({
@@ -89,9 +90,12 @@
         // 毎フレーム時に実行されるループイベントです
         function tick() {
           // レンダリング
-          group.rotateY(0.01);
-          ground.ratateY(0.01);
-          
+          rot +=1.8;
+          var radian = rot * Math.PI / 180;
+          if(Math.sin(radian)>=0){ball.position.y = 100 * Math.sin(radian) + 25;}
+          else{ball.position.y = -100 * Math.sin(radian) + 25;}
+          group.rotation.x += 0.01;
+          group.rotation.y += 0.01;
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
         }
