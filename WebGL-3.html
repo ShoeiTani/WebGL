@@ -11,7 +11,7 @@
         // サイズを指定
         const width = 960;
         const height = 540;
-        //var rot = 0;
+        var rot = 0;
 
         // レンダラーを作成
         const renderer = new THREE.WebGLRenderer({
@@ -35,10 +35,10 @@
         controls.autoRotate = true;
 
         // helper
-        const gridHelper = new THREE.GridHelper(1000,20); // size, step
+        /*const gridHelper = new THREE.GridHelper(1000,20); // size, step
         scene.add(gridHelper);
         const axisHelper = new THREE.AxisHelper(1000); //軸の長さ　X：赤、Y：緑、z：青
-        scene.add(axisHelper);
+        scene.add(axisHelper);*/
 
         // グループを作成
         const group = new THREE.Group();
@@ -54,9 +54,9 @@
 
         for (let i = 0; i < 40; i++) {
           const ball = new THREE.Mesh(geometry1, mat);
-          ball.position.x = (Math.random() - 0.5) * 1000;
+          ball.position.x = (Math.random() - 0.5) * 2000;
           ball.position.y = 25;
-          ball.position.z = (Math.random() - 0.5) * 2000;
+          ball.position.z = (Math.random() - 0.5) * 1000;
           ball.rotation.x = Math.random() * 2 * Math.PI;
           ball.rotation.y = Math.random() * 2 * Math.PI;
           ball.rotation.z = Math.random() * 2 * Math.PI;
@@ -90,12 +90,10 @@
         // 毎フレーム時に実行されるループイベントです
         function tick() {
           // レンダリング
-          /*rot +=1.8;
+          rot +=1.8;
           var radian = rot * Math.PI / 180;
           if(Math.sin(radian)>=0){ball.position.y = 100 * Math.sin(radian) +25;}
           else{ball.position.y = -100 * Math.sin(radian) +25;}
-          ball.rotation.x += 0.01;
-          ball.rotation.y += 0.01;*/
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
         }
