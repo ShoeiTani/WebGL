@@ -24,7 +24,7 @@
         const scene = new THREE.Scene();
 
         // フォグを設定
-        scene.fog = new THREE.Fog(0x000000, 10, 3000);
+        scene.fog = new THREE.Fog(0x000000, 100, 8000);
 
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
@@ -51,7 +51,7 @@
         var bump = textureLoader.load("basketballbump.png");
         mat.bumpMap = bump;
         mat.bumpscale = 0.2;
-        var geometry1 = new THREE.SphereGeometry( 20, 8, 8 );
+        var geometry1 = new THREE.SphereGeometry( 20, 16, 16 );
 
         for (let i = 0; i < 40; i++) {
           const ball = new THREE.Mesh(geometry1, mat);
@@ -98,6 +98,16 @@
     </script>
   </head>
   <body>
+    <h1>最終課題</h1>
+    <ul>
+    <br>
+    バスケットボールのテクスチャの貼り付け、ランダムな位置に配置を行った<br>
+    コートを作成した<br>
+    作成物をグループ化し回転するようにした。<br>
+    ボールのみをグループ化し、第一回レポートのように<br>
+    バウンドさせることができなかった
+    
+    <br>
     <canvas id="myCanvas"></canvas>
   </body>
 </html>
