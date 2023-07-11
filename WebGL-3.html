@@ -51,12 +51,12 @@
         var bump = textureLoader.load("basketballbump.png");
         mat.bumpMap = bump;
         mat.bumpscale = 0.2;
-        var geometry1 = new THREE.SphereGeometry( 25, 8, 8 );
+        var geometry1 = new THREE.SphereGeometry( 20, 8, 8 );
 
         for (let i = 0; i < 40; i++) {
           const ball = new THREE.Mesh(geometry1, mat);
           ball.position.x = (Math.random() - 0.5) * 2000;
-          ball.position.y = 25;
+          ball.position.y = 20;
           ball.position.z = (Math.random() - 0.5) * 1000;
           ball.rotation.x = Math.random() * 2 * Math.PI;
           ball.rotation.y = Math.random() * 2 * Math.PI;
