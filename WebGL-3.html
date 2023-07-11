@@ -72,7 +72,7 @@
         var ground = new THREE.Mesh( planeGeometry, planeMaterial );
         ground.rotation.set( -Math.PI/2, 0, 0 );
         ground.position.set(0,0,0);
-        scene.add( ground );
+        group.add( ground );
 
      
       　 // 光源（環境光）
@@ -90,12 +90,7 @@
         // 毎フレーム時に実行されるループイベントです
         function tick() {
           // レンダリング
-          rot +=1.8;
-          var radian = rot * Math.PI / 180;
-          if(Math.sin(radian)>=0){ball.position.y = 100 * Math.sin(radian) + 25;}
-          else{ball.position.y = -100 * Math.sin(radian) + 25;}
-          group.rotation.x += 0.01;
-          group.rotation.y += 0.01;
+          group.rotateY(0.01);
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
         }
