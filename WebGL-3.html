@@ -42,20 +42,25 @@
         // グループを作成
         const group = new THREE.Group();
         scene.add(group);
-        const geometry = new THREE.BoxGeometry(50, 50, 50);
-        //const geometry = new THREE.BoxBufferGeometry(50, 50, 50);
-        const material = new THREE.MeshStandardMaterial();
+        var textureLoader = new THREE.TextureLoader();  
+        var texture = textureLoader.load("basketball.jpg");
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
+        var bump = textureLoader.load("basketballbump.jpg");
+        mat.bumpMap = bump;
+        mat.bumpscale = 0.2;
+        var geometry1 = new THREE.SphereGeometry( 25, 8, 8 );
 
-        for (let i = 0; i < 1000; i++) {
-          const mesh = new THREE.Mesh(geometry, material);
-          mesh.position.x = (Math.random() - 0.5) * 2000;
-          mesh.position.y = (Math.random() - 0.5) * 2000;
-          mesh.position.z = (Math.random() - 0.5) * 2000;
-          mesh.rotation.x = Math.random() * 2 * Math.PI;
-          mesh.rotation.y = Math.random() * 2 * Math.PI;
-          mesh.rotation.z = Math.random() * 2 * Math.PI;
+        for (let i = 0; i < 40; i++) {
+          const ball = new THREE.Mesh(geometry1, mat);
+          ball.position.x = (Math.random() - 0.5) * 1000;
+          ball.position.y = 25;
+          ball.position.z = (Math.random() - 0.5) * 2000;
+          ball.rotation.x = Math.random() * 2 * Math.PI;
+          ball.rotation.y = Math.random() * 2 * Math.PI;
+          ball.rotation.z = Math.random() * 2 * Math.PI;
           // グループに格納する
-          group.add(mesh);
+          group.add(ball);
         }
 
      
