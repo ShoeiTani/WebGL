@@ -63,10 +63,10 @@
           group.add(ball);
         }
 
-        var texture = textureLoader.load("basketballcourt.jpg");
+        var texture2 = textureLoader.load("basketballcourt.jpg");
         var planeGeometry = new THREE.PlaneGeometry(2000,1000);
         var planeMaterial = new THREE.MeshLambertMaterial( {transparent: true} );
-        planeMaterial.map = texture4;
+        planeMaterial.map = texture2;
         var ground = new THREE.Mesh( planeGeometry, planeMaterial );
         ground.rotation.set( -Math.PI/2, 0, 0 );
         ground.position.set(0,0,0);
