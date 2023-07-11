@@ -43,10 +43,10 @@
         const group = new THREE.Group();
         scene.add(group);
         var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("basketball.jpg");
+        var texture = textureLoader.load("basketball.png");
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
-        var bump = textureLoader.load("basketballbump.jpg");
+        var bump = textureLoader.load("basketballbump.png");
         mat.bumpMap = bump;
         mat.bumpscale = 0.2;
         var geometry1 = new THREE.SphereGeometry( 25, 8, 8 );
